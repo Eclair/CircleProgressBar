@@ -15,7 +15,7 @@ You can install this control in two ways:
 
 1. Using CocoaPods:
 
-		pod 'USStatesColorMap', '~> 0.1'
+		pod 'CircleProgressBar', '~> 0.1'
 
 2. Manually:
 
