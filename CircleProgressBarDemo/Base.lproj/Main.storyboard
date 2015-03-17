@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3X2-n2-cjM">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Demo View Controller-->
+        <scene sceneID="xjd-gj-rhp">
+            <objects>
+                <viewController id="3X2-n2-cjM" customClass="DemoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="R7s-Af-mdA"/>
+                        <viewControllerLayoutGuide type="bottom" id="GW1-8N-9u4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="d6U-G1-1y8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CircleProgressBarDemo" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="NCE-Kn-QnB">
+                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="36"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Whh-CX-dwE" customClass="CircleProgressBar">
+                                <rect key="frame" x="87" y="198" width="240" height="240"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="BWS-1N-q6Q"/>
+                                    <constraint firstAttribute="height" constant="240" id="HJA-XY-ePX"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AeC-xc-gOE">
+                                <rect key="frame" x="16" y="592" width="382" height="40"/>
+                                <color key="backgroundColor" red="0.26367527480000003" green="0.49452920659999999" blue="0.95388971560000002" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="9zS-bW-G6l"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="24"/>
+                                <state key="normal" title="INCREASE PROGRESS">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="increaseProgress:" destination="3X2-n2-cjM" eventType="touchUpInside" id="BLt-lS-Fi5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6iv-0Y-K4v">
+                                <rect key="frame" x="16" y="640" width="382" height="40"/>
+                                <color key="backgroundColor" red="0.26367527480000003" green="0.49452920659999999" blue="0.95388971560000002" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Mte-Kp-N0z"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="24"/>
+                                <state key="normal" title="DECREASE PROGRESS">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="decreaseProgress:" destination="3X2-n2-cjM" eventType="touchUpInside" id="ZjU-uy-ipe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="khC-c9-Lte">
+                                <rect key="frame" x="16" y="688" width="382" height="40"/>
+                                <color key="backgroundColor" red="0.26367527480000003" green="0.49452920659999999" blue="0.95388971560000002" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="NFd-nn-Rvg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="24"/>
+                                <state key="normal" title="CUSTOMIZE">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="customizeToggle:" destination="3X2-n2-cjM" eventType="touchUpInside" id="2Ds-YZ-uV2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.79215686269999996" green="0.80000000000000004" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="khC-c9-Lte" firstAttribute="top" secondItem="6iv-0Y-K4v" secondAttribute="bottom" constant="8" id="7HP-Xf-KH7"/>
+                            <constraint firstItem="khC-c9-Lte" firstAttribute="trailing" secondItem="d6U-G1-1y8" secondAttribute="trailingMargin" id="AR8-L3-DdO"/>
+                            <constraint firstItem="Whh-CX-dwE" firstAttribute="top" secondItem="R7s-Af-mdA" secondAttribute="bottom" id="IeQ-6f-Wcs"/>
+                            <constraint firstItem="Whh-CX-dwE" firstAttribute="leading" secondItem="d6U-G1-1y8" secondAttribute="leadingMargin" constant="-16" id="Ihs-Fp-WVj"/>
+                            <constraint firstAttribute="centerX" secondItem="Whh-CX-dwE" secondAttribute="centerX" id="N7W-x5-Uvj"/>
+                            <constraint firstItem="AeC-xc-gOE" firstAttribute="leading" secondItem="d6U-G1-1y8" secondAttribute="leadingMargin" id="Nzr-nV-FKV"/>
+                            <constraint firstItem="6iv-0Y-K4v" firstAttribute="leading" secondItem="d6U-G1-1y8" secondAttribute="leadingMargin" id="OJu-At-VwE"/>
+                            <constraint firstItem="6iv-0Y-K4v" firstAttribute="top" secondItem="AeC-xc-gOE" secondAttribute="bottom" constant="8" id="TOM-d1-zS6"/>
+                            <constraint firstItem="6iv-0Y-K4v" firstAttribute="trailing" secondItem="d6U-G1-1y8" secondAttribute="trailingMargin" id="cff-nb-heE"/>
+                            <constraint firstItem="NCE-Kn-QnB" firstAttribute="leading" secondItem="d6U-G1-1y8" secondAttribute="leadingMargin" constant="-16" id="dul-fV-BbV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Whh-CX-dwE" secondAttribute="trailing" constant="-16" id="ikZ-3c-08G"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NCE-Kn-QnB" secondAttribute="trailing" constant="-16" id="mEf-La-4ea"/>
+                            <constraint firstItem="AeC-xc-gOE" firstAttribute="trailing" secondItem="d6U-G1-1y8" secondAttribute="trailingMargin" id="qbO-vX-3XS"/>
+                            <constraint firstItem="GW1-8N-9u4" firstAttribute="top" secondItem="khC-c9-Lte" secondAttribute="bottom" constant="8" id="rxB-4W-xK1"/>
+                            <constraint firstItem="NCE-Kn-QnB" firstAttribute="top" secondItem="R7s-Af-mdA" secondAttribute="bottom" constant="0.5" id="xTO-cq-L7N"/>
+                            <constraint firstAttribute="centerY" secondItem="Whh-CX-dwE" secondAttribute="centerY" constant="50" id="ypr-cG-NtN"/>
+                            <constraint firstItem="khC-c9-Lte" firstAttribute="leading" secondItem="d6U-G1-1y8" secondAttribute="leadingMargin" id="zBB-v9-x6A"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ikZ-3c-08G"/>
+                                <exclude reference="Ihs-Fp-WVj"/>
+                                <exclude reference="IeQ-6f-Wcs"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="circleProgressBar" destination="Whh-CX-dwE" id="MU0-zy-mDg"/>
+                        <outlet property="customizeButton" destination="khC-c9-Lte" id="Xgw-TZ-QpK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D6m-hJ-udX" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
