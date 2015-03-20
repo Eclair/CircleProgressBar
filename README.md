@@ -21,14 +21,14 @@ You can install this control in two ways:
 
   Download source from this repository and copy CircleProgressBarDemo/CircleProgressBar folder to your project.
 
-	Don't forget to add _*QuartzCore framework*_ to your project.
+	Don't forget to add _*UIKit*_ and _*QuartzCore*_ frameworks to your project.
 
 How to use
 ==========
 
-_NOTE: If you installed this control manually - please be sure that you've added QuartzCore Framework to your project._
+_NOTE: If you installed this control manually - please be sure that you've added UIKit and QuartzCore frameworks to your project._
 
-_NOTE: If you're using rectangular view for CircleProgressBar control instead of square, ProgressBar will fit available area and will be drown in center of it._
+_NOTE: If you're using rectangular view for CircleProgressBar control instead of square, ProgressBar will fit available area and will be drawn in center of it._
 
 You can simply add UIView in Interface Builder to your controller and change it's class to "CircleProgressBar" (overridden _initWithCoder_ method will be called) or create CircleProgressBar programmatically using _init_ or _initWithFrame_ methods.
 
