@@ -15,7 +15,9 @@ You can install this control in two ways:
 
 1. Using CocoaPods:
 
-		pod 'CircleProgressBar', '~> 0.1'
+```ruby
+pod 'CircleProgressBar', '~> 0.1'
+```
 
 2. Manually:
 
@@ -36,24 +38,28 @@ Using Interface Builder you'll take advantage of XCode 6 new live rendering feat
 
 To change progress, simply call "setProgress:animated:" method of CircleProgressBar instance:
 
-    [_circleProgressBar setProgress:(CGFloat)progress animated:(BOOL)animated];
+```objective-c
+[_circleProgressBar setProgress:(CGFloat)progress animated:(BOOL)animated];
+```
 
 Customization
 =============
 
 CircleProgressBar provides many customization properties:
 
-    // Progress Bar Customization
-    @property (nonatomic) CGFloat progressBarWidth;
-    @property (nonatomic) UIColor *progressBarProgressColor;
-    @property (nonatomic) UIColor *progressBarTrackColor;
+```objective-c
+// Progress Bar Customization
+@property (nonatomic) CGFloat progressBarWidth;
+@property (nonatomic) UIColor *progressBarProgressColor;
+@property (nonatomic) UIColor *progressBarTrackColor;
     
-    // Hint View Customization (inside progress bar)
-    @property (nonatomic) BOOL hintHidden;
-    @property (nonatomic) CGFloat hintViewSpacing;
-    @property (nonatomic) UIColor *hintViewBackgroundColor;
-    @property (nonatomic) UIFont *hintTextFont;
-    @property (nonatomic) UIColor *hintTextColor;
+// Hint View Customization (inside progress bar)
+@property (nonatomic) BOOL hintHidden;
+@property (nonatomic) CGFloat hintViewSpacing;
+@property (nonatomic) UIColor *hintViewBackgroundColor;
+@property (nonatomic) UIFont *hintTextFont;
+@property (nonatomic) UIColor *hintTextColor;
+```
 
 Using these customization properties you can define Progress Bar's width, color of filled part, color of empty part, Hint View's spacing (between progress bar and hint view), background color, hint text color and hint text font.
 
@@ -61,13 +67,17 @@ If you want to hide HintView you can simply set hintHidden property to NO.
 
 To customize text inside HintView you can simply set TextGenerationBlock:
 
-    - (void)setHintTextGenerationBlock:(StringGenerationBlock)generationBlock;
+```objective-c
+- (void)setHintTextGenerationBlock:(StringGenerationBlock)generationBlock;
+```
 
 For example this way:
 
-    [_circleProgressBar setHintTextGenerationBlock:^NSString *(CGFloat progress) {
-      return [NSString stringWithFormat:@"%.0f / 255", progress * 255];
-    }];
+```objective-c
+[_circleProgressBar setHintTextGenerationBlock:^NSString *(CGFloat progress) {
+  return [NSString stringWithFormat:@"%.0f / 255", progress * 255];
+}];
+```
 
 If you using Interface Builder, you can take an advantage of XCode 6 live render feature to customize control:
 
