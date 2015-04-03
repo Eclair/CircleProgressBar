@@ -10,7 +10,6 @@
 
 // Common
 #define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * M_PI)
-const CGFloat StartAngle = -90.0f;
 
 // Progress Bar Defaults
 #define DefaultProgressBarProgressColor [UIColor colorWithRed:0.71 green:0.099 blue:0.099 alpha:0.7]
@@ -83,7 +82,7 @@ const CGFloat AnimationChangeTimeStep = 0.01f;
     
     CGPoint innerCenter = CGPointMake(self.bounds.size.width / 2, self.bounds.size.height / 2);
     CGFloat radius = MIN(innerCenter.x, innerCenter.y);
-    CGFloat currentProgressAngle = (_progress * 360) - 90;
+    CGFloat currentProgressAngle = (_progress * 360) + self.startAngle;
     
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextClearRect(context, rect);
@@ -141,6 +140,11 @@ const CGFloat AnimationChangeTimeStep = 0.01f;
     [self setNeedsDisplay];
 }
 
+- (void)setStartAngle:(CGFloat)startAngle {
+    _startAngle = startAngle;
+    [self setNeedsDisplay];
+}
+
 @end
 
 @implementation CircleProgressBar (Private)
@@ -167,6 +171,10 @@ const CGFloat AnimationChangeTimeStep = 0.01f;
     return (_progressBarWidth > 0 ? _progressBarWidth : DefaultProgressBarWidth);
 }
 
+- (CGFloat)startAngle {
+    return _startAngle;
+}
+
 - (void)drawProgressBar:(CGContextRef)context progressAngle:(CGFloat)progressAngle center:(CGPoint)center radius:(CGFloat)radius {
     CGFloat barWidth = self.progressBarWidthForDrawing;
     if (barWidth > radius) {
@@ -175,15 +183,15 @@ const CGFloat AnimationChangeTimeStep = 0.01f;
     
     CGContextSetFillColorWithColor(context, self.progressBarProgressColorForDrawing.CGColor);
     CGContextBeginPath(context);
-    CGContextAddArc(context, center.x, center.y, radius, DEGREES_TO_RADIANS(StartAngle), DEGREES_TO_RADIANS(progressAngle), 0);
-    CGContextAddArc(context, center.x, center.y, radius - barWidth, DEGREES_TO_RADIANS(progressAngle), DEGREES_TO_RADIANS(StartAngle), 1);
+    CGContextAddArc(context, center.x, center.y, radius, DEGREES_TO_RADIANS(self.startAngle), DEGREES_TO_RADIANS(progressAngle), 0);
+    CGContextAddArc(context, center.x, center.y, radius - barWidth, DEGREES_TO_RADIANS(progressAngle), DEGREES_TO_RADIANS(self.startAngle), 1);
     CGContextClosePath(context);
     CGContextFillPath(context);
     
     CGContextSetFillColorWithColor(context, self.progressBarTrackColorForDrawing.CGColor);
     CGContextBeginPath(context);
-    CGContextAddArc(context, center.x, center.y, radius, DEGREES_TO_RADIANS(progressAngle), DEGREES_TO_RADIANS(StartAngle + 360), 0);
-    CGContextAddArc(context, center.x, center.y, radius - barWidth, DEGREES_TO_RADIANS(StartAngle + 360), DEGREES_TO_RADIANS(progressAngle), 1);
+    CGContextAddArc(context, center.x, center.y, radius, DEGREES_TO_RADIANS(progressAngle), DEGREES_TO_RADIANS(self.startAngle + 360), 0);
+    CGContextAddArc(context, center.x, center.y, radius - barWidth, DEGREES_TO_RADIANS(self.startAngle + 360), DEGREES_TO_RADIANS(progressAngle), 1);
     CGContextClosePath(context);
     CGContextFillPath(context);
 }

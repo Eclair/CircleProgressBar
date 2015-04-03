@@ -11,12 +11,12 @@
 typedef NSString*(^StringGenerationBlock)(CGFloat progress);
 
 /** Class that represents CircleProgressBar itself.
-
+ 
  CircleProgressBar can be initialized programmatically or using InterfaceBuilder.
  
  To change progress in CircleProgressBar just use:
  
-    [ setProgress:(CGFloat) animated:(BOOL)animated];
+ [ setProgress:(CGFloat) animated:(BOOL)animated];
  
  Interface provides ability to customize each element of CircleProgressBar independently;
  
@@ -41,6 +41,8 @@ IB_DESIGNABLE
 @property (nonatomic) UIFont *hintTextFont;
 /// @brief Hint View Text Color
 @property (nonatomic) UIColor *hintTextColor;
+/// @brief Start Angle
+@property (nonatomic) CGFloat startAngle;
 
 /** Used to set block that generates NSString according to progress, to show it in Hint View
  
