@@ -30,6 +30,8 @@ IB_DESIGNABLE
 @property (nonatomic) UIColor *progressBarProgressColor;
 /// @brief Track color in Progress Bar
 @property (nonatomic) UIColor *progressBarTrackColor;
+/// @brief Start Angle
+@property (nonatomic) CGFloat startAngle;
 
 /// @brief Whether HintView should be shown or not
 @property (nonatomic) BOOL hintHidden;
@@ -41,8 +43,6 @@ IB_DESIGNABLE
 @property (nonatomic) UIFont *hintTextFont;
 /// @brief Hint View Text Color
 @property (nonatomic) UIColor *hintTextColor;
-/// @brief Start Angle
-@property (nonatomic) CGFloat startAngle;
 
 /** Used to set block that generates NSString according to progress, to show it in Hint View
  
