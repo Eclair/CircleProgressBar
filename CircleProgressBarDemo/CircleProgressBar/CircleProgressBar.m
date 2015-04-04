@@ -82,7 +82,7 @@ const CGFloat AnimationChangeTimeStep = 0.01f;
     
     CGPoint innerCenter = CGPointMake(self.bounds.size.width / 2, self.bounds.size.height / 2);
     CGFloat radius = MIN(innerCenter.x, innerCenter.y);
-    CGFloat currentProgressAngle = (_progress * 360) + self.startAngle;
+    CGFloat currentProgressAngle = (_progress * 360) + _startAngle;
     
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextClearRect(context, rect);
@@ -183,15 +183,15 @@ const CGFloat AnimationChangeTimeStep = 0.01f;
     
     CGContextSetFillColorWithColor(context, self.progressBarProgressColorForDrawing.CGColor);
     CGContextBeginPath(context);
-    CGContextAddArc(context, center.x, center.y, radius, DEGREES_TO_RADIANS(self.startAngle), DEGREES_TO_RADIANS(progressAngle), 0);
-    CGContextAddArc(context, center.x, center.y, radius - barWidth, DEGREES_TO_RADIANS(progressAngle), DEGREES_TO_RADIANS(self.startAngle), 1);
+    CGContextAddArc(context, center.x, center.y, radius, DEGREES_TO_RADIANS(_startAngle), DEGREES_TO_RADIANS(progressAngle), 0);
+    CGContextAddArc(context, center.x, center.y, radius - barWidth, DEGREES_TO_RADIANS(progressAngle), DEGREES_TO_RADIANS(_startAngle), 1);
     CGContextClosePath(context);
     CGContextFillPath(context);
     
     CGContextSetFillColorWithColor(context, self.progressBarTrackColorForDrawing.CGColor);
     CGContextBeginPath(context);
-    CGContextAddArc(context, center.x, center.y, radius, DEGREES_TO_RADIANS(progressAngle), DEGREES_TO_RADIANS(self.startAngle + 360), 0);
-    CGContextAddArc(context, center.x, center.y, radius - barWidth, DEGREES_TO_RADIANS(self.startAngle + 360), DEGREES_TO_RADIANS(progressAngle), 1);
+    CGContextAddArc(context, center.x, center.y, radius, DEGREES_TO_RADIANS(progressAngle), DEGREES_TO_RADIANS(_startAngle + 360), 0);
+    CGContextAddArc(context, center.x, center.y, radius - barWidth, DEGREES_TO_RADIANS(_startAngle + 360), DEGREES_TO_RADIANS(progressAngle), 1);
     CGContextClosePath(context);
     CGContextFillPath(context);
 }
