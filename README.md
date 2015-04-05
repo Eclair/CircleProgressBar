@@ -52,7 +52,8 @@ CircleProgressBar provides many customization properties:
 @property (nonatomic) CGFloat progressBarWidth;
 @property (nonatomic) UIColor *progressBarProgressColor;
 @property (nonatomic) UIColor *progressBarTrackColor;
-    
+@property (nonatomic) CGFloat startAngle;
+
 // Hint View Customization (inside progress bar)
 @property (nonatomic) BOOL hintHidden;
 @property (nonatomic) CGFloat hintViewSpacing;
@@ -61,7 +62,7 @@ CircleProgressBar provides many customization properties:
 @property (nonatomic) UIColor *hintTextColor;
 ```
 
-Using these customization properties you can define Progress Bar's width, color of filled part, color of empty part, Hint View's spacing (between progress bar and hint view), background color, hint text color and hint text font.
+Using these customization properties you can define Progress Bar's width, color of filled part, color of empty part, Progress Bar's start angle, Hint View's spacing (between progress bar and hint view), background color, hint text color and hint text font.
 
 If you want to hide HintView you can simply set hintHidden property to NO.
 
