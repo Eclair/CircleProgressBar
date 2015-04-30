@@ -34,6 +34,9 @@ const CGFloat AnimationChangeTimeStep = 0.01f;
 // Common
 - (CGFloat)progressAccordingToBounds:(CGFloat)progress;
 
+// Base Drawing
+- (void)drawBackground:(CGContextRef)context;
+
 // ProgressBar Drawing
 - (UIColor*)progressBarProgressColorForDrawing;
 - (UIColor*)progressBarTrackColorForDrawing;
@@ -86,6 +89,8 @@ const CGFloat AnimationChangeTimeStep = 0.01f;
     
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextClearRect(context, rect);
+
+    [self drawBackground:context];
     
     [self drawProgressBar:context progressAngle:currentProgressAngle center:innerCenter radius:radius];
     if (!_hintHidden) {
@@ -155,6 +160,13 @@ const CGFloat AnimationChangeTimeStep = 0.01f;
     progress = MIN(progress, 1);
     progress = MAX(progress, 0);
     return progress;
+}
+
+#pragma mark - Base Drawing
+
+- (void)drawBackground:(CGContextRef)context {
+    CGContextSetFillColorWithColor(context, self.backgroundColor.CGColor);
+    CGContextFillRect(context, self.bounds);
 }
 
 #pragma mark - ProgressBar Drawing
