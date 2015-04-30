@@ -80,6 +80,12 @@ For example this way:
 }];
 ```
 
+If you want to use NSAttributedString you can set instead HintAttributedGenerationBlock:
+
+```objective-c
+- (void)setHintAttributedGenerationBlock:(AttributedStringGenerationBlock)generationBlock;
+```
+
 If you using Interface Builder, you can take an advantage of XCode 6 live render feature to customize control:
 
 ![CircleProgressBar Screenshot-XCode-InterfaceBuilder](https://raw.githubusercontent.com/Eclair/CircleProgressBar/master/Screenshots/xcode-screen01.png)

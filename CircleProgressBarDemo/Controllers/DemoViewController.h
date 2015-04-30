@@ -10,6 +10,12 @@
 
 @class CircleProgressBar;
 
+typedef enum : NSUInteger {
+    CustomizationStateDefault = 0,
+    CustomizationStateCustom,
+    CustomizationStateCustomAttributed,
+} CustomizationState;
+
 @interface DemoViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet CircleProgressBar *circleProgressBar;
@@ -17,7 +23,7 @@
 
 - (IBAction)increaseProgress:(id)sender;
 - (IBAction)decreaseProgress:(id)sender;
-- (IBAction)customizeToggle:(id)sender;
+- (IBAction)customizeNext:(id)sender;
 
 @end
 

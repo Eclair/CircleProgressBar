@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 typedef NSString*(^StringGenerationBlock)(CGFloat progress);
+typedef NSAttributedString*(^AttributedStringGenerationBlock)(CGFloat progress);
 
 /** Class that represents CircleProgressBar itself.
  
@@ -49,6 +50,12 @@ IB_DESIGNABLE
  @param StringGenerationBlock block with CGFloat progress parameter, that returns NSString*
  */
 - (void)setHintTextGenerationBlock:(StringGenerationBlock)generationBlock;
+
+/** Used to set block that generates NSAttributedString according to progress, to show it in Hint View
+ 
+ @param AttributedStringGenerationBlock block with CGFloat progress parameter, that returns NSAttributedString*
+ */
+- (void)setHintAttributedGenerationBlock:(AttributedStringGenerationBlock)generationBlock;
 
 /// @brief Current ProgressBar's progress (Read-Only)
 /// To change ProgressBar's progress use setProgress:animated:
