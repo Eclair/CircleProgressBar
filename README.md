@@ -42,6 +42,12 @@ To change progress, simply call "setProgress:animated:" method of CircleProgress
 [_circleProgressBar setProgress:(CGFloat)progress animated:(BOOL)animated];
 ```
 
+or "setProgress:animated:duration:" method to define custom animation time:
+
+```objective-c
+[_circleProgressBar setProgress:(CGFloat)progress animated:(BOOL)animated duration:(CGFloat)duration];
+```
+
 Customization
 =============
 

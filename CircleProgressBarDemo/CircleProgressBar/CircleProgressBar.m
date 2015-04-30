@@ -54,7 +54,7 @@ const CGFloat AnimationChangeTimeStep = 0.01f;
 - (void)drawHint:(CGContextRef)context center:(CGPoint)center radius:(CGFloat)radius;
 
 // Animation
-- (void)animateProgressBarChangeFrom:(CGFloat)startProgress to:(CGFloat)endProgress;
+- (void)animateProgressBarChangeFrom:(CGFloat)startProgress to:(CGFloat)endProgress duration:(CGFloat)duration;
 - (void)updateProgressBarForAnimation;
 
 @end
@@ -67,6 +67,10 @@ const CGFloat AnimationChangeTimeStep = 0.01f;
 }
 
 - (void)setProgress:(CGFloat)progress animated:(BOOL)animated {
+    [self setProgress:progress animated:animated duration:AnimationChangeTimeDuration];
+}
+
+- (void)setProgress:(CGFloat)progress animated:(BOOL)animated duration:(CGFloat)duration; {
     progress = [self progressAccordingToBounds:progress];
     if (_progress == progress) {
         return;
@@ -76,7 +80,7 @@ const CGFloat AnimationChangeTimeStep = 0.01f;
     _animationTimer = nil;
     
     if (animated) {
-        [self animateProgressBarChangeFrom:_progress to:progress];
+        [self animateProgressBarChangeFrom:_progress to:progress duration:duration];
     } else {
         _progress = progress;
         [self setNeedsDisplay];
@@ -271,11 +275,11 @@ const CGFloat AnimationChangeTimeStep = 0.01f;
 
 #pragma mark - Amination
 
-- (void)animateProgressBarChangeFrom:(CGFloat)startProgress to:(CGFloat)endProgress {
+- (void)animateProgressBarChangeFrom:(CGFloat)startProgress to:(CGFloat)endProgress duration:(CGFloat)duration {
     _currentAnimationProgress = _startProgress = startProgress;
     _endProgress = endProgress;
     
-    _animationProgressStep = (_endProgress - _startProgress) * AnimationChangeTimeStep / AnimationChangeTimeDuration;
+    _animationProgressStep = (_endProgress - _startProgress) * AnimationChangeTimeStep / duration;
     
     _animationTimer = [NSTimer scheduledTimerWithTimeInterval:AnimationChangeTimeStep target:self selector:@selector(updateProgressBarForAnimation) userInfo:nil repeats:YES];
 }

@@ -68,4 +68,12 @@ IB_DESIGNABLE
  */
 - (void)setProgress:(CGFloat)progress animated:(BOOL)animated;
 
+/** Used to set progress with animation and custom duration
+ 
+ @param progress progress to be set
+ @param animated should control animate progress change or not
+ @param duration animation duration (default is 0.2f)
+ */
+- (void)setProgress:(CGFloat)progress animated:(BOOL)animated duration:(CGFloat)duration;
+
 @end
