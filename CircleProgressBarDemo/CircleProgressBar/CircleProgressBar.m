@@ -22,8 +22,12 @@ const CGFloat DefaultProgressBarWidth = 33.0f;
 #define DefaultHintTextFont [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:30.0f]
 #define DefaultHintTextColor [UIColor whiteColor]
 const CGFloat DefaultHintSpacing = 20.0f;
-const StringGenerationBlock DefaultHintTextGenerationBlock = ^NSString *(CGFloat progress) {
-    return [NSString stringWithFormat:@"%.0f%%", progress * 100];
+const AttributedStringGenerationBlock DefaultHintTextGenerationBlock = ^NSAttributedString *(CGFloat progress) {
+    
+    NSMutableAttributedString *attr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%.0f%%", progress * 100]
+                                                                             attributes:@{NSFontAttributeName:DefaultHintTextFont, NSForegroundColorAttributeName:DefaultHintTextColor}];
+    
+    return attr;
 };
 
 // Animation Constants
@@ -46,7 +50,7 @@ const CGFloat AnimationChangeTimeStep = 0.01f;
 - (UIColor*)hintViewBackgroundColorForDrawing;
 - (UIFont*)hintTextFontForDrawing;
 - (UIColor*)hintTextColorForDrawing;
-- (NSString*)stringRepresentationOfProgress:(CGFloat)progress;
+- (NSAttributedString*)stringRepresentationOfProgress:(CGFloat)progress;
 - (void)drawHint:(CGContextRef)context center:(CGPoint)center radius:(CGFloat)radius;
 
 // Animation
@@ -58,7 +62,7 @@ const CGFloat AnimationChangeTimeStep = 0.01f;
 @implementation CircleProgressBar {
     NSTimer *_animationTimer;
     CGFloat _currentAnimationProgress, _startProgress, _endProgress, _animationProgressStep;
-    StringGenerationBlock _hintTextGenerationBlock;
+    AttributedStringGenerationBlock _hintTextGenerationBlock;
 }
 
 - (void)setProgress:(CGFloat)progress animated:(BOOL)animated {
@@ -136,7 +140,7 @@ const CGFloat AnimationChangeTimeStep = 0.01f;
     [self setNeedsDisplay];
 }
 
-- (void)setHintTextGenerationBlock:(StringGenerationBlock)generationBlock {
+- (void)setHintAttributedTextGenerationBlock:(AttributedStringGenerationBlock)generationBlock {
     _hintTextGenerationBlock = generationBlock;
     [self setNeedsDisplay];
 }
@@ -206,7 +210,7 @@ const CGFloat AnimationChangeTimeStep = 0.01f;
     return (_hintTextColor != nil ? _hintTextColor : DefaultHintTextColor);
 }
 
-- (NSString*)stringRepresentationOfProgress:(CGFloat)progress {
+- (NSAttributedString*)stringRepresentationOfProgress:(CGFloat)progress {
     return (_hintTextGenerationBlock != nil ? _hintTextGenerationBlock(progress) : DefaultHintTextGenerationBlock(progress));
 }
 
@@ -222,9 +226,10 @@ const CGFloat AnimationChangeTimeStep = 0.01f;
     CGContextClosePath(context);
     CGContextFillPath(context);
     
-    NSString *progressString = [self stringRepresentationOfProgress:_progress];
-    CGSize hintTextSize = [progressString boundingRectWithSize:CGSizeZero options:NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: self.hintTextFontForDrawing} context:nil].size;
-    [progressString drawAtPoint:CGPointMake(center.x - hintTextSize.width / 2, center.y - hintTextSize.height / 2) withAttributes:@{NSFontAttributeName: self.hintTextFontForDrawing, NSForegroundColorAttributeName: self.hintTextColorForDrawing}];
+    NSAttributedString *progressString = [self stringRepresentationOfProgress:_progress];
+    
+    CGSize hintTextSize = [progressString boundingRectWithSize:CGSizeZero options:NSStringDrawingUsesFontLeading context:nil].size;
+    [progressString drawAtPoint:CGPointMake(center.x - hintTextSize.width / 2, center.y - hintTextSize.height / 2)];
 }
 
 #pragma mark - Amination

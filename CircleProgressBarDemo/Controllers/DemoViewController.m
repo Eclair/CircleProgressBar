@@ -36,13 +36,21 @@
     // Hint View Customization
     [_circleProgressBar setHintViewSpacing:(_customized ? 10.0f : 0)];
     [_circleProgressBar setHintViewBackgroundColor:(_customized ? [UIColor colorWithWhite:1.000 alpha:0.800] : nil)];
-    [_circleProgressBar setHintTextFont:(_customized ? [UIFont fontWithName:@"AvenirNextCondensed-Heavy" size:40.0f] : nil)];
-    [_circleProgressBar setHintTextColor:(_customized ? [UIColor blackColor] : nil)];
-    [_circleProgressBar setHintTextGenerationBlock:(_customized ? ^NSString *(CGFloat progress) {
-        return [NSString stringWithFormat:@"%.0f / 255", progress * 255];
+    [_circleProgressBar setHintAttributedTextGenerationBlock:(_customized ? ^NSAttributedString *(CGFloat progress) {
+        return [self customizedHintWithProgress:progress];
     } : nil)];
     
     [_customizeButton setTitle:(_customized ? @"BACK TO DEFAULTS" : @"CUSTOMIZE") forState:UIControlStateNormal];
+}
+
+- (NSAttributedString *)customizedHintWithProgress:(CGFloat)progress
+{
+    NSMutableAttributedString *attr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%.0f / 255", progress * 255]
+                                                                             attributes:@{NSFontAttributeName:[UIFont fontWithName:@"AvenirNextCondensed-Heavy" size:40.0f],
+                                                                                          NSForegroundColorAttributeName:[UIColor blackColor]}];
+    [attr addAttribute:NSForegroundColorAttributeName value:[UIColor orangeColor] range:[[attr string] rangeOfString:@"255"]];
+    
+    return attr;
 }
 
 @end
