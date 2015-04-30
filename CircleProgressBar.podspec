@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "CircleProgressBar"
-  s.version      = "0.11"
+  s.version      = "0.12"
   s.summary      = "Circle ProgressBar control for iOS."
   s.description  = <<-DESC
                    Provides wide range of customization options.
@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.screenshots  = "https://raw.githubusercontent.com/Eclair/CircleProgressBar/master/Screenshots/ios-screen01.png", "https://raw.githubusercontent.com/Eclair/CircleProgressBar/master/Screenshots/ios-screen02.png"
   s.license      = 'MIT'
   s.author       = { "Andrey Cherkashin" => "cherkashin.andrey90@gmail.com" }
-  s.source       = { :git => "https://github.com/Eclair/CircleProgressBar.git", :tag => "0.11" }
+  s.source       = { :git => "https://github.com/Eclair/CircleProgressBar.git", :tag => "0.12" }
   s.platform     = :ios, '7.0'
   s.requires_arc = true
   s.source_files = 'CircleProgressBarDemo/CircleProgressBar/*'
