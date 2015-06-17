@@ -195,10 +195,6 @@ const CGFloat AnimationChangeTimeStep = 0.01f;
     return (_progressBarWidth > 0 ? _progressBarWidth : DefaultProgressBarWidth);
 }
 
-- (CGFloat)startAngle {
-    return _startAngle;
-}
-
 - (void)drawProgressBar:(CGContextRef)context progressAngle:(CGFloat)progressAngle center:(CGPoint)center radius:(CGFloat)radius {
     CGFloat barWidth = self.progressBarWidthForDrawing;
     if (barWidth > radius) {
