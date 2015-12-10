@@ -61,6 +61,9 @@ IB_DESIGNABLE
 /// To change ProgressBar's progress use setProgress:animated:
 @property (nonatomic, readonly) CGFloat progress;
 
+/// @brief Indicates of there is ongoing animation
+@property (nonatomic, readonly) BOOL isAnimating;
+
 /** Used to set progress with animation or without
  
  @param progress progress to be set
@@ -75,5 +78,8 @@ IB_DESIGNABLE
  @param duration animation duration (default is 0.2f)
  */
 - (void)setProgress:(CGFloat)progress animated:(BOOL)animated duration:(CGFloat)duration;
+
+/// Used to stop ongoing animation
+- (void)stopAnimation;
 
 @end

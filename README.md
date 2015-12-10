@@ -48,6 +48,13 @@ or "setProgress:animated:duration:" method to define custom animation time:
 [_circleProgressBar setProgress:(CGFloat)progress animated:(BOOL)animated duration:(CGFloat)duration];
 ```
 
+To check if there is ongoing animation use `isAnimating` property.
+To stop an ongoing animation, you can use `stopAnimation` method. In this case it will set the progress to animation end value:
+
+```objective-c
+[_circleProgressBar stopAnimation];
+```
+
 Customization
 =============
 
