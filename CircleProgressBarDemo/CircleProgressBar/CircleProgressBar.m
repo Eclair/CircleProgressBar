@@ -293,6 +293,7 @@ const CGFloat AnimationChangeTimeStep = 0.01f;
     _animationProgressStep = (_endProgress - _startProgress) * AnimationChangeTimeStep / duration;
     
     _animationTimer = [NSTimer scheduledTimerWithTimeInterval:AnimationChangeTimeStep target:self selector:@selector(updateProgressBarForAnimation) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:_animationTimer forMode:NSRunLoopCommonModes];
 }
 
 - (void)updateProgressBarForAnimation {
