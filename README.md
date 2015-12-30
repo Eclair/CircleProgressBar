@@ -99,9 +99,7 @@ If you want to use NSAttributedString you can set instead HintAttributedGenerati
 - (void)setHintAttributedGenerationBlock:(AttributedStringGenerationBlock)generationBlock;
 ```
 
-If you using Interface Builder, you can take an advantage of XCode 6 live render feature to customize control:
-
-_NOTE: if you have a problem rendering control via cocoapods, you need to add to your pod file following line:_ ```use_frameworks!``` _under 'platform' line, more here: https://github.com/CocoaPods/CocoaPods/issues/2792#issuecomment-69316099_
+If you using Interface Builder, you can take an advantage of XCode 6 live render with IBDesignable and IBInspectable features to customize control:
 
 ![CircleProgressBar Screenshot-XCode-InterfaceBuilder](https://raw.githubusercontent.com/Eclair/CircleProgressBar/master/Screenshots/xcode-screen01.png)
 

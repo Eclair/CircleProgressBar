@@ -26,24 +26,24 @@ IB_DESIGNABLE
 @interface CircleProgressBar : UIView
 
 /// @brief Width of Progress Bar
-@property (nonatomic) CGFloat progressBarWidth;
+@property (nonatomic) IBInspectable CGFloat progressBarWidth;
 /// @brief Progress color in Progress Bar
-@property (nonatomic) UIColor *progressBarProgressColor;
+@property (nonatomic) IBInspectable UIColor *progressBarProgressColor;
 /// @brief Track color in Progress Bar
-@property (nonatomic) UIColor *progressBarTrackColor;
+@property (nonatomic) IBInspectable UIColor *progressBarTrackColor;
 /// @brief Start Angle
-@property (nonatomic) CGFloat startAngle;
+@property (nonatomic) IBInspectable CGFloat startAngle;
 
 /// @brief Whether HintView should be shown or not
-@property (nonatomic) BOOL hintHidden;
+@property (nonatomic) IBInspectable BOOL hintHidden;
 /// @brief Inner spacing between Progress Bar and Hint View
-@property (nonatomic) CGFloat hintViewSpacing;
+@property (nonatomic) IBInspectable CGFloat hintViewSpacing;
 /// @brief Hint View Background Color
-@property (nonatomic) UIColor *hintViewBackgroundColor;
+@property (nonatomic) IBInspectable UIColor *hintViewBackgroundColor;
 /// @brief Hint View Text Font
-@property (nonatomic) UIFont *hintTextFont;
+@property (nonatomic) IBInspectable UIFont *hintTextFont;
 /// @brief Hint View Text Color
-@property (nonatomic) UIColor *hintTextColor;
+@property (nonatomic) IBInspectable UIColor *hintTextColor;
 
 /** Used to set block that generates NSString according to progress, to show it in Hint View
  
@@ -59,7 +59,7 @@ IB_DESIGNABLE
 
 /// @brief Current ProgressBar's progress (Read-Only)
 /// To change ProgressBar's progress use setProgress:animated:
-@property (nonatomic, readonly) CGFloat progress;
+@property (nonatomic, readonly) IBInspectable CGFloat progress;
 
 /// @brief Indicates of there is ongoing animation
 @property (nonatomic, readonly) BOOL isAnimating;
