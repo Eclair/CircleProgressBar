@@ -34,7 +34,7 @@ _NOTE: If you're using rectangular view for CircleProgressBar control instead of
 
 You can simply add UIView in Interface Builder to your controller and change it's class to "CircleProgressBar" (overridden _initWithCoder_ method will be called) or create CircleProgressBar programmatically using _init_ or _initWithFrame_ methods.
 
-Using Interface Builder you'll take advantage of XCode 6 new live rendering feature to customize control according to your needs on the fly (will be explained below in "Customization" section).
+Using Interface Builder you'll take advantage of Xcode 6 new live rendering feature to customize control according to your needs on the fly (will be explained below in "Customization" section).
 
 To change progress, simply call "setProgress:animated:" method of CircleProgressBar instance:
 
@@ -99,9 +99,9 @@ If you want to use NSAttributedString you can set instead HintAttributedGenerati
 - (void)setHintAttributedGenerationBlock:(AttributedStringGenerationBlock)generationBlock;
 ```
 
-If you using Interface Builder, you can take an advantage of XCode 6 live render with IBDesignable and IBInspectable features to customize control:
+If you using Interface Builder, you can take an advantage of Xcode 6 live render with IBDesignable and IBInspectable features to customize control:
 
-![CircleProgressBar Screenshot-XCode-InterfaceBuilder](https://raw.githubusercontent.com/Eclair/CircleProgressBar/master/Screenshots/xcode-screen01.png)
+![CircleProgressBar Screenshot-Xcode-InterfaceBuilder](https://raw.githubusercontent.com/Eclair/CircleProgressBar/master/Screenshots/xcode-screen01.png)
 
 License (MIT)
 =============
