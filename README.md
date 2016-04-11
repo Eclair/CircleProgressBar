@@ -16,7 +16,7 @@ You can install this control in two ways:
 1. Using CocoaPods:
 
 ```ruby
-pod 'CircleProgressBar', '~> 0.3’
+pod 'CircleProgressBar', '~> 0.31’
 ```
 
 2. Manually:

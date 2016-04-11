@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "CircleProgressBar"
-  s.version      = "0.3"
+  s.version      = "0.31"
   s.summary      = "Circle ProgressBar control for iOS."
   s.description  = <<-DESC
                    Provides wide range of customization options.
