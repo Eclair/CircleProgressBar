@@ -10,6 +10,8 @@
 
 typedef NSString*(^StringGenerationBlock)(CGFloat progress);
 typedef NSAttributedString*(^AttributedStringGenerationBlock)(CGFloat progress);
+typedef void (^UserUpdateBlock)(CGFloat progress);
+
 
 /** Class that represents CircleProgressBar itself.
  
@@ -56,6 +58,13 @@ IB_DESIGNABLE
  @param AttributedStringGenerationBlock block with CGFloat progress parameter, that returns NSAttributedString*
  */
 - (void)setHintAttributedGenerationBlock:(AttributedStringGenerationBlock)generationBlock;
+
+/** User can set a custom block to register chnages in the progress of the progressview.
+
+@param UserUpdateBlock with CGFloat progress parameter.
+*/
+-(void) setProgressChangeBlock : (UserUpdateBlock)updateBlock;
+
 
 /// @brief Current ProgressBar's progress (Read-Only)
 /// To change ProgressBar's progress use setProgress:animated:
