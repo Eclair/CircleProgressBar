@@ -178,6 +178,12 @@ const CGFloat AnimationChangeTimeStep = 0.01f;
     [self setNeedsDisplay];
 }
 
+
+-(void) setProgressChangeBlock : (UserUpdateBlock)updateBlock {
+    _userUpdateBlock = updateBlock;
+    [self setNeedsDisplay];
+}
+
 - (void)setStartAngle:(CGFloat)startAngle {
     _startAngle = startAngle;
     [self setNeedsDisplay];
