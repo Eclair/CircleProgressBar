@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "CircleProgressBar"
-  s.version      = "0.31"
+  s.version      = "0.31.1"
   s.summary      = "Circle ProgressBar control for iOS."
   s.description  = <<-DESC
                    Provides wide range of customization options.
@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.author       = { "Andrey Cherkashin" => "cherkashin.andrey90@gmail.com" }
   s.source       = { :git => "https://github.com/Eclair/CircleProgressBar.git", :tag => s.version.to_s }
-  s.platform     = :ios, '7.0'
+  s.platforms    = { :ios => '7.0', :tvos => "9.0" }
   s.requires_arc = true
   s.source_files = 'CircleProgressBarDemo/CircleProgressBar/*'
   s.framework    = 'UIKit', 'QuartzCore'
