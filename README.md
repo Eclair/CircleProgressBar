@@ -3,7 +3,7 @@ CircleProgressBar
 
 Circle Progress Bar iOS Control.
 
-Require iOS 7.0+
+Require iOS 7.0+ or tvOS 9.0+
 
 ![CircleProgressBar Screenshot-iOS-Example](https://raw.githubusercontent.com/Eclair/CircleProgressBar/master/Screenshots/ios-screen01.png)
 ![CircleProgressBar Screenshot-iOS-Example2](https://raw.githubusercontent.com/Eclair/CircleProgressBar/master/Screenshots/ios-screen02.png)
@@ -16,7 +16,7 @@ You can install this control in two ways:
 1. Using CocoaPods:
 
 ```ruby
-pod 'CircleProgressBar', '~> 0.31’
+pod 'CircleProgressBar', '~> 0.32’
 ```
 
 2. Manually:
