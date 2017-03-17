@@ -23,7 +23,7 @@ pod 'CircleProgressBar', '~> 0.32’
 
   Download source from this repository and copy CircleProgressBarDemo/CircleProgressBar folder to your project.
 
-	Don't forget to add _*UIKit*_ and _*QuartzCore*_ frameworks to your project.
+  Don't forget to add **UIKit** and **QuartzCore** frameworks to your project.
 
 How to use
 ==========
@@ -32,27 +32,45 @@ _NOTE: If you installed this control manually - please be sure that you've added
 
 _NOTE: If you're using rectangular view for CircleProgressBar control instead of square, ProgressBar will fit available area and will be drawn in center of it._
 
+_NOTE: If you're using swift, be sure to add `import CircleProgressBar` to source file where you're using it._
+
 You can simply add UIView in Interface Builder to your controller and change it's class to "CircleProgressBar" (overridden _initWithCoder_ method will be called) or create CircleProgressBar programmatically using _init_ or _initWithFrame_ methods.
 
 Using Interface Builder you'll take advantage of Xcode 6 new live rendering feature to customize control according to your needs on the fly (will be explained below in "Customization" section).
 
 To change progress, simply call "setProgress:animated:" method of CircleProgressBar instance:
 
+**Objective-c**:
 ```objective-c
 [_circleProgressBar setProgress:(CGFloat)progress animated:(BOOL)animated];
+```
+**Swift**:
+```swift
+circleProgressBar.setProgress(CGFloat, animated: Bool)
 ```
 
 or "setProgress:animated:duration:" method to define custom animation time:
 
+
+**Objective-c**:
 ```objective-c
 [_circleProgressBar setProgress:(CGFloat)progress animated:(BOOL)animated duration:(CGFloat)duration];
+```
+**Swift**:
+```swift
+circleProgressBar.setProgress(CGFloat, animated: Bool, duration: CGFloat)
 ```
 
 To check if there is ongoing animation use `isAnimating` property.
 To stop an ongoing animation, you can use `stopAnimation` method. In this case it will set the progress to animation end value:
 
+**Objective-c**:
 ```objective-c
 [_circleProgressBar stopAnimation];
+```
+**Swift**:
+```swift
+circleProgressBar.stopAnimation()
 ```
 
 Customization
@@ -81,22 +99,39 @@ If you want to hide HintView you can simply set hintHidden property to NO.
 
 To customize text inside HintView you can simply set TextGenerationBlock:
 
+**Objective-c**:
 ```objective-c
-- (void)setHintTextGenerationBlock:(StringGenerationBlock)generationBlock;
+[_circleProgressBar setHintTextGenerationBlock:(StringGenerationBlock)generationBlock];
+```
+**Swift**:
+```swift
+circleProgressBar.setHintTextGenerationBlock(generationBlock: StringGenerationBlock!)
 ```
 
 For example this way:
 
+**Objective-c**:
 ```objective-c
 [_circleProgressBar setHintTextGenerationBlock:^NSString *(CGFloat progress) {
   return [NSString stringWithFormat:@"%.0f / 255", progress * 255];
 }];
 ```
+**Swift**:
+```swift
+circleProgressBar.setHintTextGenerationBlock { (progress) -> String? in
+    return String.init(format: "%.0f / 255", arguments: [progress * 255])
+}
+```
 
 If you want to use NSAttributedString you can set instead HintAttributedGenerationBlock:
 
+**Objective-c**:
 ```objective-c
-- (void)setHintAttributedGenerationBlock:(AttributedStringGenerationBlock)generationBlock;
+[_circleProgressBar setHintAttributedGenerationBlock:(AttributedStringGenerationBlock)generationBlock];
+```
+**Swift**:
+```swift
+circleProgressBar.setHintAttributedGenerationBlock(generationBlock: AttributedStringGenerationBlock!)
 ```
 
 If you using Interface Builder, you can take an advantage of Xcode 6 live render with IBDesignable and IBInspectable features to customize control:
