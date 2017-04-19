@@ -64,6 +64,8 @@ const CGFloat AnimationChangeTimeStep = 0.01f;
     CGFloat _currentAnimationProgress, _startProgress, _endProgress, _animationProgressStep;
     StringGenerationBlock _hintTextGenerationBlock;
     AttributedStringGenerationBlock _hintAttributedTextGenerationBlock;
+    UserUpdateBlock _userUpdateBlock;
+
 }
 
 - (BOOL)isAnimating {
@@ -118,6 +120,10 @@ const CGFloat AnimationChangeTimeStep = 0.01f;
     if (!_hintHidden) {
         [self drawHint:context center:innerCenter radius:radius];
     }
+    if (_userUpdateBlock) {
+        _userUpdateBlock(_progress);
+    }
+
 }
 
 #pragma mark - Setters with View Update
