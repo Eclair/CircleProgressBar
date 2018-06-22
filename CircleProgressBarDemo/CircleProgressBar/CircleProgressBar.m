@@ -22,7 +22,11 @@ const CGFloat DefaultProgressBarWidth = 33.0f;
 #define DefaultHintTextColor [UIColor whiteColor]
 const CGFloat DefaultHintSpacing = 20.0f;
 const StringGenerationBlock DefaultHintTextGenerationBlock = ^NSString *(CGFloat progress) {
-    return [NSString stringWithFormat:@"%.0f%%", progress * 100];
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    NSLocale *locale = [NSLocale currentLocale];
+    [formatter setLocale:locale];
+    [formatter setMaximumFractionDigits:0];
+    return [NSString stringWithFormat:@"%@%@", [formatter stringFromNumber: [NSNumber numberWithFloat:(progress * 100)]], [formatter percentSymbol]];
 };
 
 // Animation Constants
